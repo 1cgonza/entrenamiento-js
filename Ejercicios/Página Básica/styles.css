@@ -1,0 +1,15 @@
+body {
+    font-family: 'Barrio';
+    font-size: 222px;
+    background-color: bisque;
+    width: 100%;
+}
+
+  #number {
+    font-size:450px;
+    color: wheat;
+    background-color: black;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+  }
