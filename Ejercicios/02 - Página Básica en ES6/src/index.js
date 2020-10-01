@@ -1,8 +1,14 @@
 import './scss/styles.scss';
+//import {colorAleatorio} from 'ayuda.js';
+//import {aleatorio} from 'ayuda.js';
+
 
 let contador = 0;
 const fondo = document.getElementById('main');
 const numero = document.getElementById('number');
+const pausa = document.getElementById("botonpausa").addEventListener("click", botonPausa);
+//const play = document.getElementById("botonplay").addEventListener("click", botonPlay);
+const color = document.getElementById("botoncolor").addEventListener("click", botonColor);
 
 const intervalo = setInterval(() => {
   numero.innerText = contador;
@@ -13,6 +19,22 @@ const intervalo = setInterval(() => {
 
   contador++;
 }, 1000);
+
+function botonColor(){
+  fondo.style.backgroundColor = colorAleatorio();
+}
+
+function botonPausa(){
+  if (clearTimeout(contador) == true ){
+    setInterval(contador, 1000);
+  }
+  else{
+    clearTimeout(contador);
+  }
+}
+
+
+
 
 function colorAleatorio() {
   const r = aleatorio();
