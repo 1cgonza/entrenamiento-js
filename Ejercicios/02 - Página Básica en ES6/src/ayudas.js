@@ -1,5 +1,14 @@
-import {colorAleatorio} from 'index.js';
-import {aleatorio} from 'index.js';
+export default function colorAleatorio() {
+        {
+        const r = aleatorio();
+        const g = aleatorio();
+        const b = aleatorio();
+        return `rgb(${r}, ${g}, ${b})`;
+      }
+}
 
-
-export {colorAleatorio, aleatorio};
+export default function aleatorio() {
+      {
+        return Math.floor(Math.random() * 255);
+      }
+}
