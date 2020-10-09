@@ -4,7 +4,7 @@ export async function iniciarCamara(dims) {
   try {
     fuente = await navigator.mediaDevices.getUserMedia({
       audio: false,
-      video: { width: dims[0], height: dims[1] },
+      video: { width: { min: 1024, ideal: 1280, max: 1920 }, height: { min: 576, ideal: 720, max: 1080 } },
     });
     const camara = document.getElementById('webcam');
     camara.srcObject = fuente;
