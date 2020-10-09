@@ -32,7 +32,31 @@ h1 {
   background-color: black;
   width: 100%;
   text-align: center;
-  position: fixed;
+  position: relative;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+#botonPausa {
+  font-size: 60px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+#botonColor {
+  font-size: 60px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+#botonInicio {
+  font-size: 60px;
+  text-align: center;
+  position: relative;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
 }
