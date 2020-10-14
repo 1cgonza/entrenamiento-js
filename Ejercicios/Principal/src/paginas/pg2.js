@@ -1,14 +1,35 @@
-import { iniciarCamara } from '../utilidades/ayudas';
+import { iniciarCamara, aleatorio } from '../utilidades/ayudas';
+import { searchTag } from '../utilidades/flickr';
 import * as coco from '@tensorflow-models/coco-ssd';
 import * as cpu from '@tensorflow/tfjs-backend-cpu';
 import * as webgl from '@tensorflow/tfjs-backend-webgl';
 import Filtros from '../componentes/Filtros';
+import diccionario from '../utilidades/diccionario';
+
+const imgNoCoco = document.querySelector('#imagen-no-coco img');
+const imgFlickr = document.querySelector('#imagen-internet img');
+const numNoCoco = 1;
+let categoriaActual;
+
+function crearLista() {
+  const categorias = document.getElementById('columna-categorias');
+
+  Object.keys(diccionario).forEach((key) => {
+    const obj = diccionario[key];
+    const ele = document.createElement('span');
+    ele.className = 'categoria';
+    ele.id = `categoria${obj.displayName}`;
+    ele.innerText = obj.displayName;
+    categorias.appendChild(ele);
+  });
+}
 
 export default function iniciarPg2() {
   let dims = [0, 0];
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
   const filtros = new Filtros(ctx);
+
   let camara;
   let modelo;
 
@@ -18,13 +39,12 @@ export default function iniciarPg2() {
   ctx.fillStyle = 'yellow';
 
   async function iniciar() {
+    crearLista();
     camara = await iniciarCamara(dims);
-
     modelo = await coco.load();
 
     dims = [camara.videoWidth, camara.videoHeight];
-    console.dir(camara);
-    console.log(camara.videoWidth);
+
     canvas.width = dims[0];
     canvas.height = dims[1];
     document.querySelector('.cargador').classList.add('esconder');
@@ -39,17 +59,19 @@ export default function iniciarPg2() {
     if (resultados.length > 0) {
       resultados.forEach((prediccion) => {
         const [x, y, w, h] = prediccion.bbox;
-        const pixeles = ctx.getImageData(x, y, w, h);
+        const categoria = prediccion.class;
+        const eleEnCategorias = document.getElementById(`categoria${categoria}`);
 
-        if (prediccion.class === 'person') {
-          filtros.brillo(pixeles, 80);
-          filtros.blancoNegro(pixeles);
-          filtros.limitar(pixeles, 90);
-        } else {
-          filtros.brillo(pixeles, 80);
+        if (eleEnCategorias && categoriaActual !== categoria) {
+          eleEnCategorias.classList.add('activa');
+          imgNoCoco.src = `/imgs/${categoria}/no-coco/${aleatorio(numNoCoco)}.jpg`;
+          searchTag(categoria).then((src) => {
+            imgFlickr.src = src;
+          });
+
+          categoriaActual = categoria;
         }
 
-        ctx.putImageData(pixeles, x, y);
         ctx.strokeRect(x, y, w, h);
         ctx.fillText(`${prediccion.class} - ${prediccion.score}`, x, y - 20);
       });
