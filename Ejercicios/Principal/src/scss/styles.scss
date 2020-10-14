@@ -1,0 +1,308 @@
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  background-color: black;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-color: black;
+  background-image: url("http://hugoidarraga.info/wp-content/uploads/2020/10/bg-01-scaled.jpg");
+}
+
+#webcam {
+  display: none;
+}
+
+#canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cargador {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: whitesmoke;
+
+  &.esconder {
+    display: none;
+  }
+}
+.hidden {
+  display: none;
+}
+#tituloGrande {
+  background-color: rgba(251, 6, 128, 0.7);
+  text-align: center;
+  color: #CCFF00;
+  font-family: 'Black Ops One', cursive;
+  font-size: calc(3.5em + 2.4vw);
+  line-height: 1.0em;
+  padding: 0.2em;
+  margin: 0.2em;
+}
+#introduccion {
+  background-color: rgba(251, 6, 128, 0.7);
+  text-align: center;
+  color:#CCFF00;
+  font-family: 'Staatliches', cursive;
+  font-size: calc(1em + 1.1vw);
+  line-height: 1.4em;
+  padding: 0.2em;
+  margin: 0.2em;
+  position: absolute; bottom: 0;
+}
+
+//Botón inicio
+//
+.wrapper{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+  height:auto;
+}
+button{
+  width:300px;
+  height:70px;
+  background: linear-gradient(to left top, #c32c71 50%, #b33771 50%);
+  border-style: none;
+  color: #CCFF00;
+  font-size: calc(1.2em + 1.3vw);
+  letter-spacing: 3px;
+  font-family: 'Black Ops One', cursive;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  padding: 0px;
+  overflow: hidden;
+  transition: all .5s;
+  box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+}
+button span{
+  position: absolute;
+  display: block;
+}
+button span:nth-child(1){
+  height: 3px;
+  width:200px;
+  top:0px;
+  left:-200px;
+  background: linear-gradient(to right, rgba(0,0,0,0), #f6e58d);
+  border-top-right-radius: 1px;
+  border-bottom-right-radius: 1px;
+  animation: span1 2s linear infinite;
+  animation-delay: 1s;
+}
+@keyframes span1{
+  0%{
+      left:-200px
+  }
+  100%{
+      left:200px;
+  }
+}
+button span:nth-child(2){
+  height: 70px;
+  width: 3px;
+  top:-70px;
+  right:0px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0), #f6e58d);
+  border-bottom-left-radius: 1px;
+  border-bottom-right-radius: 1px;
+  animation: span2 2s linear infinite;
+  animation-delay: 2s;
+}
+@keyframes span2{
+  0%{
+      top:-70px;
+  }
+  100%{
+      top:70px;
+  }
+}
+button span:nth-child(3){
+  height:3px;
+  width:200px;
+  right:-200px;
+  bottom: 0px;
+  background: linear-gradient(to left, rgba(0,0,0,0), #f6e58d);
+  border-top-left-radius: 1px;
+  border-bottom-left-radius: 1px;
+  animation: span3 2s linear infinite;
+  animation-delay: 3s;
+}
+@keyframes span3{
+  0%{
+      right:-200px;
+  }
+  100%{
+      right: 200px;
+  }
+}
+button span:nth-child(4){
+  height:70px;
+  width:3px;
+  bottom:-70px;
+  left:0px;
+  background: linear-gradient(to top, rgba(0,0,0,0), #f6e58d);
+  border-top-right-radius: 1px;
+  border-top-left-radius: 1px;
+  animation: span4 2s linear infinite;
+  animation-delay: 4s;
+}
+@keyframes span4{
+  0%{
+      bottom: -70px;
+  }
+  100%{
+      bottom:70px;
+  }
+}
+button:hover{
+  transition: all .5s;
+  transform: rotate(-3deg) scale(1.1);
+  box-shadow: 0px 3px 5px rgba(0,0,0,.4);
+}
+button:hover span{
+  animation-play-state: paused;
+}
+
+//Divide la página en dos secciones
+section {
+  color: black;
+  text-align: center;
+}
+#pg2 div {
+  height: 100%;
+}
+.container {
+  display: table;
+  width: 100%;
+}
+.left-half {
+  background-color: #ce0f3d;
+  position: absolute;
+  left: 0px;
+  width: 50%;
+}
+.right-half {
+  position: absolute;
+  right: 0px;
+  width: 50%;
+}
+
+//Divide la columna de la izquierda en la columna de las categorías y del video
+.left-half-video {
+  display: table;
+  width: 100%;
+}
+.fila-video{
+  display: table-row;
+  height: 100%;
+}
+.columna-video {           
+  position: absolute;
+  right: 0px;
+  width: 50%;
+  height: 100%;
+}
+.columna-categorias {           
+  background-color: #ce0f3d;
+  position: absolute;
+  left: 0px;
+  width: 25%;
+  height: 100%;
+}
+.columna-texto {           
+  background-color: #ce0f3d;
+  position: absolute;
+  left: 0px;
+  width: 25%;
+  height: 100%;
+}
+
+
+//Divide el bloque de la derecha en dos filas dentro de una columna
+.parent {
+  display: flex;                 
+  flex-direction: column;        
+  height: 100%;                 
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.child-1 {
+  flex: 1 0;                    
+  padding: 0px;
+  overflow: auto;
+}
+.child-1::after {
+  content:"";
+}
+
+.child-2 {
+  flex: 1 0;                     
+  padding: 0px;
+  overflow: auto;
+}
+.child-2::after {
+  content:"";
+}
+
+//Sub-division arriba-abajo
+.tablaInterior{
+  display: table;
+  width: 100%;
+}
+.fila{
+  display: table-row;
+}
+.col-1-imagen{
+  display: table-cell;
+  background-color: #ea7ad7;
+  width: 100%;
+}
+.col-1-texto{
+  display: table-cell;
+  background-color: #deddfa;
+  font-family: 'Keania One', cursive;
+  //font-size: calc(1em + 1.1vw);
+}
+.col-2-imagen{
+  display: table-cell;
+  background-color: #dab8f3;
+}
+.col-2-texto{
+  display: table-cell;
+  background-color: #deddfa;
+  font-family: 'Keania One', cursive;
+  //font-size: calc(1em + 1.1vw);
+}
