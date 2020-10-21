@@ -41,7 +41,8 @@ main {
   top: 50%;
   left: 50%;
   transform: translateX(-50%);
-  color: whitesmoke;
+  color: #FF8A65;
+  font-size: calc(3.0vw);
 
   &.esconder {
     display: none;
@@ -75,6 +76,134 @@ main {
   position: absolute;
   bottom: 0;
 }
+
+
+
+section {
+  text-align: center;
+}
+
+.contenedor {
+  display: flex;
+
+  .columna {
+    width: $anchoColumna;
+    min-height: 100vh;
+  }
+
+  .celda {
+    height: 50vh;
+    position: relative;
+    background-color: #dd2c00;
+    background-image: url("http://hugoidarraga.info/wp-content/uploads/2020/10/camara-web3.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Staatliches', cursive;
+    font-size: calc(1.1vw);
+    color: #EEEEEE;
+
+    .imagen-celda {
+      height: 90%;
+
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  #imagen-no-coco {
+    background-color: #dd2c00;
+    background-image: url("http://hugoidarraga.info/wp-content/uploads/2020/10/categoria.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: calc(0.8vw);
+    color: #EEEEEE;
+  }
+
+  #imagen-internet {
+    background-color: #ff5722;
+    background-image: url("http://hugoidarraga.info/wp-content/uploads/2020/10/flickr1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: calc(0.8vw);
+    color: #EEEEEE;
+  }
+
+  #imagen-coco {
+    background-color: #ff5722;
+    background-image: url("http://hugoidarraga.info/wp-content/uploads/2020/10/5f6bc60e665f54051f1e5406_logo_coco.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: calc(0.8vw);
+    color: #EEEEEE;
+  }
+
+  #columna-video {
+    height: 90%;
+    width: 100%;
+
+    #canvas {
+      height: 100%;
+    }
+  }
+}
+
+//Divide la columna de la izquierda en la columna de las categorías y del video
+.left-half-video {
+  display: table;
+  width: 100%;
+}
+.fila-video {
+  display: table-row;
+  height: 100%;
+}
+
+#columna-categorias {
+  background-color: #00bcd4;
+  width: 160px;
+  max-height: 100vh;
+  overflow: auto;
+  line-height: 1;
+  text-align: center;
+  font-size: 0.8em;
+  color: #b2ebf2;
+  font-family: 'Staatliches', cursive;
+  font-size: calc(0.9vw);
+
+  .categoria {
+    display: block;
+
+    &.activa {
+      font-size: 1em;
+      color: #000000;
+    }
+    &.desactiva {
+      font-size: 1em;
+      color: #ccff00;
+    }
+  }
+}
+
+.columna-texto {
+  background-color: #ce0f3d;
+  position: absolute;
+  left: 0px;
+  width: 25%;
+  height: 100%;
+}
+
+
+
+
+
 
 //Botón inicio
 //
@@ -192,165 +321,4 @@ button:hover {
 }
 button:hover span {
   animation-play-state: paused;
-}
-
-//Divide la página en dos secciones
-section {
-  color: black;
-  text-align: center;
-}
-
-.contenedor {
-  display: flex;
-
-  .columna {
-    width: $anchoColumna;
-    min-height: 100vh;
-  }
-
-  .celda {
-    height: 50vh;
-    position: relative;
-    background-color: #f6e58d;
-
-    .imagen-celda {
-      height: 90%;
-
-      img {
-        height: 100%;
-        width: auto;
-      }
-    }
-
-    p {
-      margin: 0;
-    }
-  }
-
-  #imagen-no-coco {
-    background-color: aquamarine;
-  }
-
-  #imagen-internet {
-    background-color: brown;
-  }
-
-  #imagen-coco {
-    background-color: royalblue;
-  }
-
-  #columna-video {
-    height: 90%;
-    width: 100%;
-
-    #canvas {
-      height: 100%;
-    }
-  }
-}
-
-// .left-half {
-//   background-color: #ce0f3d;
-//   position: absolute;
-//   left: 0px;
-//   width: 50%;
-// }
-// .right-half {
-//   position: absolute;
-//   right: 0px;
-//   width: 50%;
-// }
-
-//Divide la columna de la izquierda en la columna de las categorías y del video
-.left-half-video {
-  display: table;
-  width: 100%;
-}
-.fila-video {
-  display: table-row;
-  height: 100%;
-}
-
-#columna-categorias {
-  background-color: #ce0f3d;
-  width: 160px;
-  max-height: 100vh;
-  overflow: auto;
-  line-height: 1;
-  text-align: center;
-  font-size: 0.8em;
-
-  .categoria {
-    display: block;
-
-    &.activa {
-      font-size: 1em;
-      color: #ccff00;
-    }
-  }
-}
-
-.columna-texto {
-  background-color: #ce0f3d;
-  position: absolute;
-  left: 0px;
-  width: 25%;
-  height: 100%;
-}
-
-//Divide el bloque de la derecha en dos filas dentro de una columna
-.parent {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.child-1 {
-  flex: 1 0;
-  padding: 0px;
-  overflow: auto;
-}
-.child-1::after {
-  content: '';
-}
-
-.child-2 {
-  flex: 1 0;
-  padding: 0px;
-  overflow: auto;
-}
-.child-2::after {
-  content: '';
-}
-
-//Sub-division arriba-abajo
-.tablaInterior {
-  display: table;
-  width: 100%;
-}
-.fila {
-  display: table-row;
-}
-.col-1-imagen {
-  display: table-cell;
-  background-color: #ea7ad7;
-  width: 100%;
-}
-.col-1-texto {
-  display: table-cell;
-  background-color: #deddfa;
-  font-family: 'Keania One', cursive;
-  //font-size: calc(1em + 1.1vw);
-}
-.col-2-imagen {
-  display: table-cell;
-  background-color: #dab8f3;
-}
-.col-2-texto {
-  display: table-cell;
-  background-color: #deddfa;
-  font-family: 'Keania One', cursive;
-  //font-size: calc(1em + 1.1vw);
 }

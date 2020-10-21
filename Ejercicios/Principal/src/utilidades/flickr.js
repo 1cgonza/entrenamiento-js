@@ -41,6 +41,6 @@ export async function searchTag(terms) {
     '&nojsoncallback=?';
 
   const obj = await req(url);
-  const item = obj.photos.photo[5];
+  const item = obj.photos.photo[0];
   return `https://farm${item.farm}.staticflickr.com/${item.server}/${item.id}_${item.secret}_q.jpg`;
 }

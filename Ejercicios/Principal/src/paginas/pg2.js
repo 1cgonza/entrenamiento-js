@@ -7,8 +7,10 @@ import Filtros from '../componentes/Filtros';
 import diccionario from '../utilidades/diccionario';
 
 const imgNoCoco = document.querySelector('#imagen-no-coco img');
+const imgCoco = document.querySelector('#imagen-coco img');
 const imgFlickr = document.querySelector('#imagen-internet img');
 const numNoCoco = 1;
+const numCoco = 1;
 let categoriaActual;
 
 function crearLista() {
@@ -65,11 +67,14 @@ export default function iniciarPg2() {
         if (eleEnCategorias && categoriaActual !== categoria) {
           eleEnCategorias.classList.add('activa');
           imgNoCoco.src = `/imgs/${categoria}/no-coco/${aleatorio(numNoCoco)}.jpg`;
+          imgCoco.src = `/imgs/${categoria}/coco/${aleatorio(numCoco)}.jpg`;
           searchTag(categoria).then((src) => {
             imgFlickr.src = src;
           });
-
-          categoriaActual = categoria;
+          categoriaActual = categoria;        
+        }
+        else {
+          eleEnCategorias.classList.remove('activa');      
         }
 
         ctx.strokeRect(x, y, w, h);
