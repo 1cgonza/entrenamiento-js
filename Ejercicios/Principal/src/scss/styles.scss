@@ -32,17 +32,13 @@ main {
   background-image: url('http://hugoidarraga.info/wp-content/uploads/2020/10/bg-01-scaled.jpg');
 }
 
-#webcam {
-  display: none;
-}
-
 .cargador {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%);
-  color: #FF8A65;
-  font-size: calc(3.0vw);
+  color: #ff8a65;
+  font-size: calc(3vw);
 
   &.esconder {
     display: none;
@@ -77,8 +73,6 @@ main {
   bottom: 0;
 }
 
-
-
 section {
   text-align: center;
 }
@@ -95,12 +89,12 @@ section {
     height: 50vh;
     position: relative;
     background-color: #dd2c00;
-    background-image: url("http://hugoidarraga.info/wp-content/uploads/2020/10/camara-web3.png");
+    background-image: url('http://hugoidarraga.info/wp-content/uploads/2020/10/camara-web3.png');
     background-position: center;
     background-repeat: no-repeat;
     font-family: 'Staatliches', cursive;
     font-size: calc(1.1vw);
-    color: #EEEEEE;
+    color: #eeeeee;
 
     .imagen-celda {
       height: 90%;
@@ -118,40 +112,49 @@ section {
 
   #imagen-no-coco {
     background-color: #dd2c00;
-    background-image: url("http://hugoidarraga.info/wp-content/uploads/2020/10/categoria.png");
+    background-image: url('http://hugoidarraga.info/wp-content/uploads/2020/10/categoria.png');
     background-repeat: no-repeat;
     background-position: center;
     font-family: 'Raleway', sans-serif;
     font-size: calc(0.8vw);
-    color: #EEEEEE;
+    color: #eeeeee;
   }
 
   #imagen-internet {
     background-color: #ff5722;
-    background-image: url("http://hugoidarraga.info/wp-content/uploads/2020/10/flickr1.png");
+    background-image: url('http://hugoidarraga.info/wp-content/uploads/2020/10/flickr1.png');
     background-repeat: no-repeat;
     background-position: center;
     font-family: 'Raleway', sans-serif;
     font-size: calc(0.8vw);
-    color: #EEEEEE;
+    color: #eeeeee;
   }
 
   #imagen-coco {
     background-color: #ff5722;
-    background-image: url("http://hugoidarraga.info/wp-content/uploads/2020/10/5f6bc60e665f54051f1e5406_logo_coco.png");
+    background-image: url('http://hugoidarraga.info/wp-content/uploads/2020/10/5f6bc60e665f54051f1e5406_logo_coco.png');
     background-repeat: no-repeat;
     background-position: center;
     font-family: 'Raleway', sans-serif;
     font-size: calc(0.8vw);
-    color: #EEEEEE;
+    color: #eeeeee;
   }
 
   #columna-video {
     height: 90%;
     width: 100%;
+    position: relative;
 
+    #webcam,
     #canvas {
       height: 100%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #canvas {
+      z-index: 9999;
     }
   }
 }
@@ -199,11 +202,6 @@ section {
   width: 25%;
   height: 100%;
 }
-
-
-
-
-
 
 //Botón inicio
 //

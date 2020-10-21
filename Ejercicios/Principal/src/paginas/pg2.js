@@ -6,12 +6,13 @@ import * as webgl from '@tensorflow/tfjs-backend-webgl';
 import Filtros from '../componentes/Filtros';
 import diccionario from '../utilidades/diccionario';
 
-const imgNoCoco = document.querySelector('#imagen-no-coco img');
-const imgCoco = document.querySelector('#imagen-coco img');
-const imgFlickr = document.querySelector('#imagen-internet img');
+const imgsNoCoco = document.querySelectorAll('#imagen-no-coco img');
+const imgsFlickr = document.querySelectorAll('#imagen-internet img');
+const imgsCoco = document.querySelectorAll('#imagen-coco img');
 const numNoCoco = 1;
 const numCoco = 1;
 let categoriaActual;
+let guardeElesMenu = [];
 
 function crearLista() {
   const categorias = document.getElementById('columna-categorias');
@@ -28,17 +29,11 @@ function crearLista() {
 
 export default function iniciarPg2() {
   let dims = [0, 0];
-  const canvas = document.getElementById('canvas');
-  const ctx = canvas.getContext('2d');
-  const filtros = new Filtros(ctx);
-
   let camara;
   let modelo;
 
-  ctx.font = '30px Courier New';
-  ctx.lineWidth = 5;
-  ctx.strokeStyle = 'green';
-  ctx.fillStyle = 'yellow';
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
 
   async function iniciar() {
     crearLista();
@@ -46,40 +41,56 @@ export default function iniciarPg2() {
     modelo = await coco.load();
 
     dims = [camara.videoWidth, camara.videoHeight];
-
     canvas.width = dims[0];
     canvas.height = dims[1];
+
+    ctx.font = '30px Courier New';
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'black';
+    ctx.fillStyle = 'yellow';
+
     document.querySelector('.cargador').classList.add('esconder');
     predicciones();
   }
 
   async function predicciones() {
-    const resultados = await modelo.detect(camara);
-
-    ctx.drawImage(camara, 0, 0, dims[0], dims[1]);
+    const resultados = await modelo.detect(camara, 5, 0.5);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const ancho = `${100 / resultados.length}%`;
+    if (guardeElesMenu.length) {
+      guardeElesMenu.forEach((ele) => ele.classList.remove('activa'));
+      guardeElesMenu = [];
+    }
 
     if (resultados.length > 0) {
-      resultados.forEach((prediccion) => {
+      resultados.forEach((prediccion, i) => {
         const [x, y, w, h] = prediccion.bbox;
         const categoria = prediccion.class;
         const eleEnCategorias = document.getElementById(`categoria${categoria}`);
-
+        guardeElesMenu.push(eleEnCategorias);
+        eleEnCategorias.classList.add('activa');
         if (eleEnCategorias && categoriaActual !== categoria) {
-          eleEnCategorias.classList.add('activa');
-          imgNoCoco.src = `/imgs/${categoria}/no-coco/${aleatorio(numNoCoco)}.jpg`;
-          imgCoco.src = `/imgs/${categoria}/coco/${aleatorio(numCoco)}.jpg`;
+          imgsCoco[i].src = `/imgs/${categoria}/coco/${aleatorio(numCoco)}.jpg`;
+          imgsCoco[i].style.maxWidth = ancho;
+          imgsNoCoco[i].src = `/imgs/${categoria}/no-coco/${aleatorio(numNoCoco)}.jpg`;
+          imgsNoCoco[i].style.maxWidth = ancho;
+
           searchTag(categoria).then((src) => {
-            imgFlickr.src = src;
+            imgsFlickr[i].src = src;
+            imgsFlickr[i].style.maxWidth = ancho;
           });
-          categoriaActual = categoria;        
-        }
-        else {
-          eleEnCategorias.classList.remove('activa');      
+          categoriaActual = categoria;
         }
 
         ctx.strokeRect(x, y, w, h);
         ctx.fillText(`${prediccion.class} - ${prediccion.score}`, x, y - 20);
       });
+    }
+
+    for (let i = resultados.length; i < 5; i++) {
+      imgsCoco[i].src = '';
+      imgsNoCoco[i].src = '';
+      imgsFlickr[i].src = '';
     }
 
     window.requestAnimationFrame(predicciones);

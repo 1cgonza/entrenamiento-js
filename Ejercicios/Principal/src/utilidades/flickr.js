@@ -21,7 +21,6 @@ function req(url) {
 }
 
 export async function searchTag(terms) {
-  console.log('tick');
   if (!terms) {
     return;
   }
