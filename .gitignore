@@ -3,3 +3,7 @@ node_modules
 
 .DS_Store
 .log
+
+/Pruebas-personales
+index.html
+inicio.js
