@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="author" content="3st3r30sc0p10" />
-    <meta name="description" content="Es un sitio web para implementar un contador en javascript" />
-    <meta name="keywords" content="javascript, ejercicio, aprendizaje" />
-
+    <meta name="description" content="Algunos problemas políticos, estéticos y epistemológicos relacionados con la clasificación algorítmica, es decir, la clasificación por medio de algoritmos de machine learning." />
+    <meta name="keywords" content="clasificacion, identificacion, machine learning, aprendizaje automatico, tensorflow, javascript" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Press+Start+2P&family=Roboto:wght@500&family=Russo+One&family=Sansita+Swashed:wght@500&family=Secular+One&display=swap"
       rel="stylesheet"
@@ -18,6 +18,7 @@
     />
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=PT+Sans&display=swap" rel="stylesheet">
     <title>Clasificación algorítmica para la vigilancia y el control</title>
   </head>
   <body>
@@ -47,11 +48,20 @@
           <div class="columna left-half">
             <section id="celda-webcam" class="celda">
               <div id="texto-celda">
-                <p>
-                  El universo de los objetos no es un mundo dado sobre el que la visión algorítmica posa su mirada
-                  modesta. Por el contrario, su orden proyecta unas visiones del mundo cargadas política, económica e
-                  históricamente.
+                <p class="mb-0">
+                  <button data-fancybox data-src="#textoFancyBox" data-modal="true" href="javascript:;" class="icon-btn add-btn corner-button btn btn-primary">
+                    <div class="add-icon"></div>
+                    <div class="btn-txt">Rectitud</div>
+                  </button>
                 </p>
+                <div style="display: none;max-width:600px;" id="textoFancyBox">
+                  <p>
+                    El universo de los objetos no es un mundo dado sobre el que la visión algorítmica posa su mirada
+                    modesta. Por el contrario, su orden proyecta unas visiones del mundo cargadas política, económica e
+                    históricamente. Cada imagen que aquí emerge narra una historia de dominación y colonialismo político, estético y epistemológico. El papel que cumple cada imagen en el conjunto de datos de entrenamiento permite entrever los prejuicios, hegemonías, reparticiones, legados, imposiciones que están allí insertos. 
+                  </p>
+                  <p><button data-fancybox-close class="btn">Cerrar</button></p>
+                </div>  
               </div>
               <div id="columna-video">
                 <video id="webcam"></video>
@@ -64,11 +74,19 @@
               <div class="imagen-celda"><img /><img /><img /><img /><img /></div>
 
               <div class="texto-celda">
-                <p>
-                  Las imágenes, y las etiquetas que las categorizan, representan un lugar y una forma de ver el mundo.
-                  Este punto de vista se reproduce en los modelos de IA, imponiendo una realidad y privilegiando los
-                  intereses que se lucran de ella.
+                <p class="mb-0">
+                  <button data-fancybox data-src="#textoFancyBox1" data-modal="true" href="javascript:;" class="icon-btn add-btn corner-button btn btn-primary">
+                    <div class="add-icon"></div>
+                    <div class="btn-txt">Imparcialidad</div>
+                  </button>
                 </p>
+          
+                <div style="display: none;max-width:600px;" id="textoFancyBox1">
+                  <p>Las imágenes, y las etiquetas que las categorizan, representan un lugar y una forma de ver el mundo.
+                    Este punto de vista se reproduce en los modelos de IA, imponiendo una realidad y privilegiando los
+                    intereses que se lucran de ella.</p>
+                  <p><button data-fancybox-close class="btn">Cerrar</button></p>
+                </div>
               </div>
             </section>
           </div>
@@ -80,11 +98,22 @@
               <div class="imagen-celda"><img /><img /><img /><img /><img /></div>
 
               <div class="texto-celda">
-                <p>
-                  Hay diversas realidades que son subordinadas. Estas realidades son en muchas ocasiones las de lxs
-                  excluidxs, colonizadxs, marginadxs. ¿Cuál es la realidad que percibe COCO-SSD? ¿Cuál es la realidad
-                  con la que ha sido entrenado?
+                <p class="mb-0">
+                  <button data-fancybox data-src="#textoFancyBox2" data-modal="true" href="javascript:;" class="icon-btn add-btn corner-button btn btn-primary">
+                    <div class="add-icon"></div>
+                    <div class="btn-txt">Aberración</div>
+                  </button>
                 </p>
+                <div style="display: none;max-width:600px;" id="textoFancyBox2">
+                  <p>
+                    Hay diversas realidades que son subordinadas. Estas realidades son en muchas ocasiones las de lxs
+                    excluidxs, colonizadxs, marginadxs. ¿Cuál es la realidad que percibe COCO-SSD? ¿Cuál es la realidad
+                    con la que ha sido entrenado?
+                  </p>
+                  <p>
+                    <button data-fancybox-close class="corner-button"><span>Cerrar</span></button>
+                  </p>
+                </div> 
               </div>
             </section>
 
@@ -92,16 +121,27 @@
               <div class="imagen-celda"><img /><img /><img /><img /><img /></div>
 
               <div class="texto-celda">
-                <p>
-                  Los diversos sistemas de clasificación (personales, institucionales, tradicionales, etc.), se
-                  materializan en el etiquetado de las imágenes. La clasificación es una práctica política que puede
-                  imponer una realidad.
+                <p class="mb-0">
+                  <button data-fancybox data-src="#textoFancyBox3" data-modal="true" href="javascript:;" class="icon-btn add-btn corner-button btn btn-primary">
+                    <div class="add-icon"></div>
+                    <div class="btn-txt">Pareceres</div>
+                  </button>
                 </p>
+                <div style="display: none;max-width:600px;" id="textoFancyBox3">
+                  <p>
+                    Los diversos sistemas de clasificación (personales, institucionales, tradicionales, etc.), se
+                    materializan en el etiquetado de las imágenes. La clasificación es una práctica política que puede
+                    imponer una realidad.
+                  </p>
+                  <p><button data-fancybox-close class="btn">Cerrar</button></p>
+                </div> 
               </div>
             </section>
           </div>
         </div>
       </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
   </body>
 </html>

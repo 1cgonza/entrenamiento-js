@@ -88,7 +88,6 @@ section {
     height: 50vh;
     position: relative;
     background-color: #dd2c00;
-    background-image: url('http://hugoidarraga.info/wp-content/uploads/2020/10/camara-web3.png');
     background-position: center;
     background-repeat: no-repeat;
     font-family: 'Staatliches', cursive;
@@ -102,8 +101,12 @@ section {
         height: 100%;
         width: auto;
       }
-    }
 
+      .icono-intro {
+        width: 30%;
+        height: 30%;
+      }
+    }
     p {
       margin: 0;
     }
@@ -111,7 +114,6 @@ section {
 
   #imagen-no-coco {
     background-color: #dd2c00;
-    background-image: url('http://hugoidarraga.info/wp-content/uploads/2020/10/categoria.png');
     background-repeat: no-repeat;
     background-position: center;
     font-family: 'Raleway', sans-serif;
@@ -121,7 +123,6 @@ section {
 
   #imagen-internet {
     background-color: #ff5722;
-    background-image: url('http://hugoidarraga.info/wp-content/uploads/2020/10/flickr1.png');
     background-repeat: no-repeat;
     background-position: center;
     font-family: 'Raleway', sans-serif;
@@ -131,12 +132,15 @@ section {
 
   #imagen-coco {
     background-color: #ff5722;
-    background-image: url('http://hugoidarraga.info/wp-content/uploads/2020/10/5f6bc60e665f54051f1e5406_logo_coco.png');
     background-repeat: no-repeat;
     background-position: center;
     font-family: 'Raleway', sans-serif;
     font-size: calc(0.8vw);
     color: #eeeeee;
+  }
+
+  .texto-celda {
+    width: 100%;
   }
 
   #columna-video {
@@ -175,21 +179,19 @@ section {
   overflow: auto;
   line-height: 1;
   text-align: center;
-  font-size: 0.8em;
   color: #b2ebf2;
-  font-family: 'Staatliches', cursive;
-  font-size: calc(0.9vw);
+  font-family: 'PT Sans', sans-serif;
+  font-size: calc(0.6vw);
+  padding-top: 20px;
 
   .categoria {
     display: block;
 
     &.activa {
-      font-size: 1em;
+      font-family: 'Anton', sans-serif;
+      font-size: calc(1.2vw);
+      font-weight: bold;
       color: #000000;
-    }
-    &.desactiva {
-      font-size: 1em;
-      color: #ccff00;
     }
   }
 }
@@ -204,7 +206,7 @@ section {
 
 //Botón inicio
 //
-.wrapper {
+#intro .wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -212,7 +214,7 @@ section {
   width: fit-content;
   height: auto;
 }
-button {
+#intro button {
   width: 300px;
   height: 70px;
   background: linear-gradient(to left top, #00bcd4 50%, #00bcd4 50%);
@@ -230,11 +232,11 @@ button {
   transition: all 0.5s;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
-button span {
+#intro button span {
   position: absolute;
   display: block;
 }
-button span:nth-child(1) {
+#intro button span:nth-child(1) {
   height: 3px;
   width: 200px;
   top: 0px;
@@ -253,7 +255,7 @@ button span:nth-child(1) {
     left: 200px;
   }
 }
-button span:nth-child(2) {
+#intro button span:nth-child(2) {
   height: 70px;
   width: 3px;
   top: -70px;
@@ -272,7 +274,7 @@ button span:nth-child(2) {
     top: 70px;
   }
 }
-button span:nth-child(3) {
+#intro button span:nth-child(3) {
   height: 3px;
   width: 200px;
   right: -200px;
@@ -291,7 +293,7 @@ button span:nth-child(3) {
     right: 200px;
   }
 }
-button span:nth-child(4) {
+#intro button span:nth-child(4) {
   height: 70px;
   width: 3px;
   bottom: -70px;
@@ -311,11 +313,106 @@ button span:nth-child(4) {
   }
 }
 
-button:hover {
+#intro button:hover {
   transition: all 0.5s;
   transform: rotate(-3deg) scale(1.1);
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
 }
-button:hover span {
+#intro button:hover span {
   animation-play-state: paused;
+}
+
+// Texto FancyBox
+#textoFancyBox1 {
+  font-family: 'PT Sans', sans-serif;
+  font-size: calc(1vh);
+}
+//
+//
+//
+//
+//
+//Botón fancyBox
+
+.icon-btn {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #cdcdcd;
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.2s ease-in-out;
+  font-size: calc(1vw);
+  cursor: pointer;
+}
+.add-btn:hover {
+  width: 50%;
+}
+.add-btn::before,
+.add-btn::after {
+  transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+  content: '';
+  position: absolute;
+  height: 4px;
+  width: 10px;
+  top: calc(50% - 2px);
+  background: red;
+}
+.add-btn::after {
+  right: 14px;
+  overflow: hidden;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.add-btn::before {
+  left: 14px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.icon-btn:focus {
+  outline: none;
+}
+.btn-txt {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.add-btn:hover::before,
+.add-btn:hover::after {
+  width: 4px;
+  border-radius: 2px;
+}
+.add-btn:hover .btn-txt {
+  opacity: 1;
+}
+.add-icon::after,
+.add-icon::before {
+  transition: all 0.2s ease-in-out;
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 2px;
+  top: calc(50% - 10px);
+  background: red;
+  overflow: hidden;
+}
+.add-icon::before {
+  left: 22px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.add-icon::after {
+  right: 22px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.add-btn:hover .add-icon::before {
+  left: 15px;
+  height: 4px;
+  top: calc(50% - 2px);
+}
+.add-btn:hover .add-icon::after {
+  right: 15px;
+  height: 4px;
+  top: calc(50% - 2px);
 }
