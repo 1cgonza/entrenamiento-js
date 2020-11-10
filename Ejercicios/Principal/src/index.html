@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="author" content="3st3r30sc0p10" />
-    <meta name="description" content="Algunos problemas políticos, estéticos y epistemológicos relacionados con la clasificación algorítmica, es decir, la clasificación por medio de algoritmos de machine learning." />
+    <meta name="description" content="Algunos problemas políticos, estéticos y epistemológicos relacionados con la clasificación algorítmica, esto es, la clasificación por medio de algoritmos de machine learning." />
     <meta name="keywords" content="clasificacion, identificacion, machine learning, aprendizaje automatico, tensorflow, javascript" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link
@@ -24,7 +24,7 @@
   <body>
     <main id="main">
       <div id="intro">
-        <div id="divTituloGrande">
+        <!-- <div id="divTituloGrande">
           <h1 id="tituloGrande">EL IDIOMA ANALÍTICO DE LA INTELIGENCIA ARTIFICIAL</h1>
         </div>
         <div id="introduccion">
@@ -32,14 +32,16 @@
             Explora la forma en la que el aprendizaje automático clasifica el mundo. Asimismo, las diversas preguntas
             que surgen con su funcionamiento y aplicación al interior de los sistemas de vigilancia y control social.
           </p>
+        </div> -->
+        
+        <div id="video-viewport">
+          <video width="1920" height="1280" autoplay muted loop>
+            <source src="http://hugoidarraga.info/wp-content/uploads/2020/11/intro-narrativa.mp4" type="video/mp4" />
+            <!-- <source src="https://storage.googleapis.com/coverr-main/webm/Winter-Grass.webm" type="video/webm" /> -->
+          </video>
         </div>
-        <div class="wrapper">
-          <button id="inicio">
-            Inicio<span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+        <div class="wrap">
+          <button id="inicio" class="button">Iniciar</button>
         </div>
       </div>
 
@@ -143,5 +145,40 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <script>var min_w = 300;
+      var vid_w_orig;
+      var vid_h_orig;
+      
+      $(function() {
+      
+          vid_w_orig = parseInt($('video').attr('width'));
+          vid_h_orig = parseInt($('video').attr('height'));
+      
+          $(window).resize(function () { fitVideo(); });
+          $(window).trigger('resize');
+      
+      });
+      
+      function fitVideo() {
+      
+          $('#video-viewport').width($('.fullsize-video-bg').width());
+          $('#video-viewport').height($('.fullsize-video-bg').height());
+      
+          var scale_h = $('.fullsize-video-bg').width() / vid_w_orig;
+          var scale_v = $('.fullsize-video-bg').height() / vid_h_orig;
+          var scale = scale_h > scale_v ? scale_h : scale_v;
+      
+          if (scale * vid_w_orig < min_w) {scale = min_w / vid_w_orig;};
+      
+          $('video').width(scale * vid_w_orig);
+          $('video').height(scale * vid_h_orig);
+      
+          $('#video-viewport').scrollLeft(($('video').width() - $('.fullsize-video-bg').width()) / 2);
+          $('#video-viewport').scrollTop(($('video').height() - $('.fullsize-video-bg').height()) / 2);
+      
+      };</script>
+      <script>$(document).ready(function(){
+        $("#what").fancybox();
+    });</script>
   </body>
 </html>
