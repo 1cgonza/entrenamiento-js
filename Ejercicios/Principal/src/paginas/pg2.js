@@ -70,9 +70,9 @@ export default function iniciarPg2() {
         guardeElesMenu.push(eleEnCategorias);
         eleEnCategorias.classList.add('activa');
         if (eleEnCategorias && categoriaActual !== categoria) {
-          imgsCoco[i].src = `/imgs/${categoria}/coco/${aleatorio(numCoco)}.jpg`;
+          imgsCoco[i].src = `imgs/${categoria}/coco/${aleatorio(numCoco)}.jpg`;
           imgsCoco[i].style.maxWidth = ancho;
-          imgsNoCoco[i].src = `/imgs/${categoria}/no-coco/${aleatorio(numNoCoco)}.jpg`;
+          imgsNoCoco[i].src = `imgs/${categoria}/no-coco/${aleatorio(numNoCoco)}.jpg`;
           imgsNoCoco[i].style.maxWidth = ancho;
 
           searchTag(categoria).then((src) => {

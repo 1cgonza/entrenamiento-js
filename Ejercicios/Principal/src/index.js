@@ -10,3 +10,13 @@ inicio.addEventListener('click', () => {
   pg2Div.classList.remove('hidden');
   pg2();
 });
+
+
+//Cargar FancyBox al inicio
+
+window.onload= function () {
+  $.fancybox.open({ // FancyBox 3
+    src: '#introFancyBox', 
+    modal: true
+});
+}

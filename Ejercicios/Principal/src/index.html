@@ -24,16 +24,6 @@
   <body>
     <main id="main">
       <div id="intro">
-        <!-- <div id="divTituloGrande">
-          <h1 id="tituloGrande">EL IDIOMA ANALÍTICO DE LA INTELIGENCIA ARTIFICIAL</h1>
-        </div>
-        <div id="introduccion">
-          <p>
-            Explora la forma en la que el aprendizaje automático clasifica el mundo. Asimismo, las diversas preguntas
-            que surgen con su funcionamiento y aplicación al interior de los sistemas de vigilancia y control social.
-          </p>
-        </div> -->
-        
         <div id="video-viewport">
           <video width="1920" height="1280" autoplay muted loop>
             <source src="http://hugoidarraga.info/wp-content/uploads/2020/11/intro-narrativa.mp4" type="video/mp4" />
@@ -91,6 +81,15 @@
                 </div>
               </div>
             </section>
+            <div id="introFancyBox">
+              <p>
+                Este es un espacio para explorar tu propia realidad a partir de la vision algorítmica. Por medio de la cámara web, el modelo de clasificación automática de objetos categoriza todo lo que hay a tu alrededor. COCO-Ssd es el modelo que se ejecuta con Tensorflow JS, utilizando los recursos gráficos de tu navegador. ¿Qué tipo de objetos reconoce? ¿Qué categorías de objetos reconoce?
+              </p>
+              <p>La división rectangular induce a la comparación; en este caso, la comparación taxonómica. Cada una representa una propuesta política, estética y epistemológica. ¿Cómo es clasificado el mundo? ¿Cuál es la forma prototípica del patrón estadístico que determina la petenencia de un objeto a una clase u otra a partir de su relación icónica con el objeto representado?</p>
+              <p>
+                <button data-fancybox-close class="corner-button"><span>Cerrar</span></button>
+              </p>
+            </div> 
           </div>
 
           <div id="columna-categorias"></div>
@@ -118,7 +117,6 @@
                 </div> 
               </div>
             </section>
-
             <section id="imagen-internet" class="celda">
               <div class="imagen-celda"><img /><img /><img /><img /><img /></div>
 
@@ -177,8 +175,5 @@
           $('#video-viewport').scrollTop(($('video').height() - $('.fullsize-video-bg').height()) / 2);
       
       };</script>
-      <script>$(document).ready(function(){
-        $("#what").fancybox();
-    });</script>
   </body>
 </html>
