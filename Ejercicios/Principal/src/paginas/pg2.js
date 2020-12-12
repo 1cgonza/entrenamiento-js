@@ -27,6 +27,8 @@ function crearLista() {
   });
 }
 
+
+
 export default function iniciarPg2() {
   let dims = [0, 0];
   let camara;
@@ -81,11 +83,11 @@ export default function iniciarPg2() {
           });
           categoriaActual = categoria;
         }
-
         ctx.strokeRect(x, y, w, h);
         ctx.fillText(`${prediccion.class} - ${prediccion.score}`, x, y - 20);
       });
     }
+    
 
     for (let i = resultados.length; i < 5; i++) {
       imgsCoco[i].src = '';
@@ -95,6 +97,9 @@ export default function iniciarPg2() {
 
     window.requestAnimationFrame(predicciones);
   }
-
   iniciar();
 }
+
+
+
+
